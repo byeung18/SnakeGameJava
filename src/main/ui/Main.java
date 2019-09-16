@@ -16,7 +16,6 @@ public class Main {
 
         Board board = new Board(size);
         System.out.println("Board size is " + board.getSize());
-
     }
 }
 
