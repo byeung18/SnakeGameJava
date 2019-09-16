@@ -18,13 +18,5 @@ public class Main {
         System.out.println("Board size is " + board.getSize());
 
     }
-
-    public static void sayHello(){
-        System.out.println("Hello");
-    }
-
-    public static void sayGoodbye(){
-        System.out.println("bye!");
-    }
 }
 
