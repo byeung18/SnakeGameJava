@@ -8,7 +8,7 @@ public class Board {
         this.size = size;
     }
 
-    public int getSize(){
+    public int getSize() {
         return size;
     }
 }
