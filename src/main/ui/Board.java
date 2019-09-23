@@ -1,4 +1,5 @@
 package ui;
+
 import ui.Apple;
 
 public class Board {
