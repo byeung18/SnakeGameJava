@@ -1,4 +1,5 @@
 package ui;
+import ui.Apple;
 
 public class Board {
 
@@ -8,7 +9,15 @@ public class Board {
         this.size = size;
     }
 
+    public void setSize(int size) {
+        //modifies: set new size for board
+        this.size = size;
+    }
+
     public int getSize() {
+        //effects: returns size of board
         return size;
     }
+
+
 }
