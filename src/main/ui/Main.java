@@ -30,18 +30,13 @@ public class Main {
         Snake snake = new Snake();
         snake.setLoc(board.getSize() / 2, board.getSize() / 2);
         System.out.println("Snake location is at " + snake.getXloc() + ", " + snake.getYloc());
-        board.loadSnake(snake);
-
-        //board.printBoard();
-        board.save("savedBoard.txt");
-
-
-        Board newBoard = new Board(1);
-
-        newBoard.load("savedBoard.txt");
-        newBoard.printBoard();
+        board.printBoard();
+//        board.save("savedBoard.txt");
+//
+//        Board newBoard = new Board(1);
+//        newBoard.load("savedBoard.txt");
+//        newBoard.printBoard();
     }
-
 
 }
 
