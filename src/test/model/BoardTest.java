@@ -1,5 +1,6 @@
-package ui;
+package model;
 
+import model.Board;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -25,7 +26,7 @@ public class BoardTest {
     }
 
     @Test
-    public void testSaveLoad(){
+    public void testSaveLoad() {
         board.save("testSaveLoad.txt");
         Board newBoard = new Board(board.getSize());
         newBoard.load("testSaveLoad.txt");

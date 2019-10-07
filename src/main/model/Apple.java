@@ -1,4 +1,4 @@
-package ui;
+package model;
 
 public class Apple {
     private int xloc;
@@ -7,6 +7,11 @@ public class Apple {
     public Apple(int xloc, int yloc) {
         this.xloc = xloc;
         this.yloc = yloc;
+    }
+
+    public String getColor() {
+        //abstract
+        return "";
     }
 
     public void setLoc(int xloc, int yloc) {

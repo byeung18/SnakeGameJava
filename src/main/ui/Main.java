@@ -1,9 +1,10 @@
 package ui;
 
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.nio.file.Files;
-import java.nio.file.Paths;
+import model.*;
+import model.Apple;
+import model.Board;
+import model.Snake;
+
 import java.util.Scanner;
 import java.util.Random;
 
@@ -23,7 +24,7 @@ public class Main {
         System.out.println("Board size is " + board.getSize());
 
         Random rand = new Random();
-        Apple apple = new Apple(rand.nextInt(board.getSize()), rand.nextInt(board.getSize()));
+        Apple apple = new RedApple(rand.nextInt(board.getSize()), rand.nextInt(board.getSize()));
         System.out.println("Apple location is at " + apple.getXloc() + ", " + apple.getYloc());
         board.loadApple(apple);
 
@@ -31,6 +32,7 @@ public class Main {
         snake.setLoc(board.getSize() / 2, board.getSize() / 2);
         System.out.println("Snake location is at " + snake.getXloc() + ", " + snake.getYloc());
         board.printBoard();
+
 //        board.save("savedBoard.txt");
 //
 //        Board newBoard = new Board(1);
