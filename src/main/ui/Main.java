@@ -23,21 +23,35 @@ public class Main {
         Board board = new Board(size);
         System.out.println("Board size is " + board.getSize());
 
-        Random rand = new Random();
-        Apple apple = new RedApple(rand.nextInt(board.getSize()), rand.nextInt(board.getSize()));
-        System.out.println("Apple location is at " + apple.getXloc() + ", " + apple.getYloc());
-        board.loadApple(apple);
-
-        Snake snake = new Snake();
-        snake.setLoc(board.getSize() / 2, board.getSize() / 2);
-        System.out.println("Snake location is at " + snake.getXloc() + ", " + snake.getYloc());
-        board.printBoard();
+        setupApple(scanner, board);
+        setupSnake(board);
 
 //        board.save("savedBoard.txt");
 //
 //        Board newBoard = new Board(1);
 //        newBoard.load("savedBoard.txt");
 //        newBoard.printBoard();
+    }
+
+    static void setupApple(Scanner scanner, Board board) {
+        Random rand = new Random();
+        Apple apple;
+        System.out.println("What color apple? red or blue: ");
+        String color = scanner.next();
+        if (color.equals("blue")) {
+            apple = new BlueApple(rand.nextInt(board.getSize()), rand.nextInt(board.getSize()));
+        } else {
+            apple = new RedApple(rand.nextInt(board.getSize()), rand.nextInt(board.getSize()));
+        }
+        System.out.println("Apple location is at " + apple.getXloc() + ", " + apple.getYloc());
+        board.loadApple(apple);
+    }
+
+    static void setupSnake(Board board) {
+        Snake snake = new Snake();
+        snake.setLoc(board.getSize() / 2, board.getSize() / 2);
+        System.out.println("Snake location is at " + snake.getXloc() + ", " + snake.getYloc());
+        board.printBoard();
     }
 
 }

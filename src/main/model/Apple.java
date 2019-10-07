@@ -1,6 +1,6 @@
 package model;
 
-public class Apple {
+public abstract class Apple {
     private int xloc;
     private int yloc;
 
@@ -9,10 +9,7 @@ public class Apple {
         this.yloc = yloc;
     }
 
-    public String getColor() {
-        //abstract
-        return "";
-    }
+    abstract String getColor();
 
     public void setLoc(int xloc, int yloc) {
         //modifies: xloc and yloc

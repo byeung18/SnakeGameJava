@@ -8,4 +8,8 @@ public class RedApple extends Apple {
         super(xloc, yloc);
         this.color = "red";
     }
+
+    public String getColor() {
+        return color;
+    }
 }
