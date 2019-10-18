@@ -4,6 +4,7 @@ import model.Board;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 
 public class BoardTest {
@@ -36,6 +37,20 @@ public class BoardTest {
                 assertEquals(board.display[i][j], newBoard.display[i][j]);
             }
         }
+    }
+
+    @Test
+    public void testAddApple() {
+        Apple a1 = new BlueApple(3, 5);
+        Apple a2 = new RedApple(2, 5);
+        Apple a3 = new RedApple(2, 5);
+        board.addApple(a1);
+        board.addApple(a2);
+        assertEquals(board.apples.size(), 2);
+        assertThrows(TooManyApplesException.class, () -> board.appleAdding(a3));
+        board.loadApple(a1);
+        assertEquals(board.display[a1.getXloc()][a1.getYloc()], 1);
+        assertEquals(board.display[a2.getXloc()][a2.getYloc()], 1);
     }
 }
 

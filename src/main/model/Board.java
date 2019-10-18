@@ -2,6 +2,7 @@ package model;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.List;
 
@@ -12,7 +13,7 @@ public class Board implements Loadable, Saveable {
 
     private int size;
     public int[][] display;
-    private List<Apple> apples;
+    public ArrayList<Apple> apples = new ArrayList<>();
 
     public Board(int size) {
         this.size = size;
@@ -31,12 +32,7 @@ public class Board implements Loadable, Saveable {
 
     public void addApple(Apple apple) {
         try {
-            apples.add(apple);
-            if (apples.size() == 0) {
-                throw new NoAppleException();
-            } else if (apples.size() >= 10) {
-                throw new TooManyApplesException();
-            }
+            appleAdding(apple);
         } catch (NoAppleException e) {
             System.out.println("No apples found :(");
         } catch (TooManyApplesException e) {
@@ -45,6 +41,15 @@ public class Board implements Loadable, Saveable {
             for (Apple a:apples) {
                 loadApple(a);
             }
+        }
+    }
+
+    protected void appleAdding(Apple apple) throws NoAppleException, TooManyApplesException {
+        apples.add(apple);
+        if (apples.size() == 0) {
+            throw new NoAppleException();
+        } else if (apples.size() >= 3) {
+            throw new TooManyApplesException();
         }
     }
 
