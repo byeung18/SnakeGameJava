@@ -33,7 +33,7 @@ public class Main {
 //        newBoard.printBoard();
     }
 
-    static void setupApple(Scanner scanner, Board board) throws NoAppleException, TooManyApplesException {
+    static void setupApple(Scanner scanner, Board board) {
         Random rand = new Random();
         Apple apple;
         System.out.println("What color apple? red or blue: ");

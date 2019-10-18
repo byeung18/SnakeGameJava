@@ -29,7 +29,7 @@ public class Board implements Loadable, Saveable {
         return size;
     }
 
-    public void addApple(Apple apple) throws NoAppleException, TooManyApplesException {
+    public void addApple(Apple apple) {
         try {
             apples.add(apple);
             if (apples.size() == 0) {
