@@ -12,7 +12,7 @@ public class Board implements Loadable, Saveable {
 
     private int size;
     public int[][] display;
-    private List<Apple> Apples;
+    private List<Apple> apples;
 
     public Board(int size) {
         this.size = size;
@@ -31,10 +31,10 @@ public class Board implements Loadable, Saveable {
 
     public void addApple(Apple apple) throws AppleException {
         try {
-            Apples.add(apple);
-            if (Apples.size() == 0) {
+            apples.add(apple);
+            if (apples.size() == 0) {
                 throw new NoAppleException();
-            } else if (Apples.size() >= 10) {
+            } else if (apples.size() >= 10) {
                 throw new TooManyApplesException();
             }
         } catch (NoAppleException e) {
@@ -42,8 +42,8 @@ public class Board implements Loadable, Saveable {
         } catch (TooManyApplesException e) {
             System.out.println("Too many apples!!");
         } finally {
-            for (apple:Apples) {
-                loadApple(apple);
+            for (Apple a:apples) {
+                loadApple(a);
             }
         }
     }
