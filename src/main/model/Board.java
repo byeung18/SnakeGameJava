@@ -3,6 +3,7 @@ package model;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Scanner;
+import java.util.List;
 
 public class Board implements Loadable, Saveable {
 
@@ -11,6 +12,7 @@ public class Board implements Loadable, Saveable {
 
     private int size;
     public int[][] display;
+    private List<Apple> Apples;
 
     public Board(int size) {
         this.size = size;
@@ -27,7 +29,26 @@ public class Board implements Loadable, Saveable {
         return size;
     }
 
-    public void loadApple(Apple apple) {
+    public void addApple(Apple apple) throws AppleException {
+        try {
+            Apples.add(apple);
+            if (Apples.size() == 0) {
+                throw new NoAppleException();
+            } else if (Apples.size() >= 10) {
+                throw new TooManyApplesException();
+            }
+        } catch (NoAppleException e) {
+            System.out.println("No apples found :(");
+        } catch (TooManyApplesException e) {
+            System.out.println("Too many apples!!");
+        } finally {
+            for (apple:Apples) {
+                loadApple(apple);
+            }
+        }
+    }
+
+    private void loadApple(Apple apple) {
         //modifies: display
         //effect: saves apple location on board
         display[apple.getXloc()][apple.getYloc()] = APPLE;
