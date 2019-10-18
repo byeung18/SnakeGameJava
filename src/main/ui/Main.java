@@ -33,7 +33,7 @@ public class Main {
 //        newBoard.printBoard();
     }
 
-    static void setupApple(Scanner scanner, Board board) {
+    static void setupApple(Scanner scanner, Board board) throws AppleException {
         Random rand = new Random();
         Apple apple;
         System.out.println("What color apple? red or blue: ");
@@ -44,7 +44,7 @@ public class Main {
             apple = new RedApple(rand.nextInt(board.getSize()), rand.nextInt(board.getSize()));
         }
         System.out.println("Apple location is at " + apple.getXloc() + ", " + apple.getYloc());
-        board.loadApple(apple);
+        board.addApple(apple);
     }
 
     static void setupSnake(Board board) {

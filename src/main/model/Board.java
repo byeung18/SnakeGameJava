@@ -48,7 +48,7 @@ public class Board implements Loadable, Saveable {
         }
     }
 
-    private void loadApple(Apple apple) {
+    protected void loadApple(Apple apple) {
         //modifies: display
         //effect: saves apple location on board
         display[apple.getXloc()][apple.getYloc()] = APPLE;
