@@ -56,6 +56,13 @@ public class BoardTest {
     @Test
     public void testPrintBoard() {
         board.printBoard();
+        board.setUpEaten();
+        Snake snake = new Snake();
+        board.loadSnake(snake);
+        Apple apple = new RedApple(1, 5);
+        board.addApple(apple);
+        board.eatApple(apple);
+
     }
 }
 

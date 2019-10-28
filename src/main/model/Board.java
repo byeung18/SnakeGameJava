@@ -65,7 +65,7 @@ public class Board implements Loadable, Saveable {
     }
 
     // set up hashmap for such
-    private void setUpEaten() {
+    public void setUpEaten() {
         eaten.put("red", eatenRedApples);
         eaten.put("blue", eatenBlueApples);
 
