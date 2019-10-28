@@ -47,12 +47,16 @@ public class Board implements Loadable, Saveable {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         Board board = (Board) o;
-        return eatenRedApples.equals(board.eatenRedApples) &&
-                eatenBlueApples.equals(board.eatenBlueApples) &&
-                eaten.equals(board.eaten);
+        return eatenRedApples.equals(board.eatenRedApples)
+                && eatenBlueApples.equals(board.eatenBlueApples)
+                && eaten.equals(board.eaten);
     }
 
     @Override
