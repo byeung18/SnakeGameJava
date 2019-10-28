@@ -52,5 +52,10 @@ public class BoardTest {
         assertEquals(board.display[a1.getXloc()][a1.getYloc()], 1);
         assertEquals(board.display[a2.getXloc()][a2.getYloc()], 1);
     }
+
+    @Test
+    public void testPrintBoard() {
+        board.printBoard();
+    }
 }
 
