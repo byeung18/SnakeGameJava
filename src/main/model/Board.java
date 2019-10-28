@@ -5,6 +5,8 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Board implements Loadable, Saveable {
 
@@ -14,6 +16,7 @@ public class Board implements Loadable, Saveable {
     private int size;
     public int[][] display;
     public ArrayList<Apple> apples = new ArrayList<>();
+    private HashMap<String, ArrayList<Apple>> eaten = new HashMap<>();
 
     public Board(int size) {
         this.size = size;
@@ -44,6 +47,20 @@ public class Board implements Loadable, Saveable {
         }
     }
 
+    // set up hashmap for such
+    private void setUpEaten() {
+        eaten.put("red", new ArrayList<>());
+        eaten.put("blue", new ArrayList<>());
+
+    }
+
+    // apple goes into hashmap
+    public void eatApple(Apple apple) {
+        String color = apple.getColor();
+        eaten.get(color).add(apple);
+        display[apple.getXloc()][apple.getYloc()] = 0;
+    }
+
     protected void appleAdding(Apple apple) throws NoAppleException, TooManyApplesException {
         apples.add(apple);
         if (apples.size() == 0) {
@@ -62,7 +79,10 @@ public class Board implements Loadable, Saveable {
     public void loadSnake(Snake snake) {
         //modifies: display
         //effect: saves snake location on board
-        display[snake.getXloc()][snake.getYloc()] = SNAKE;
+        int value = display[snake.getXloc()][snake.getYloc()];
+        if (value == APPLE) {
+            eatApple(apples.get(0));
+        }
     }
 
     public void printBoard() {

@@ -26,6 +26,7 @@ public class Main {
         setupApple(scanner, board);
         setupSnake(board);
 
+
 //        board.save("savedBoard.txt");
 //
 //        Board newBoard = new Board(1);
@@ -53,6 +54,7 @@ public class Main {
         System.out.println("Snake location is at " + snake.getXloc() + ", " + snake.getYloc());
         board.printBoard();
     }
+
 
 }
 
