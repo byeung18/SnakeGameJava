@@ -2,11 +2,7 @@ package model;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.Scanner;
-import java.util.List;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class Board implements Loadable, Saveable {
 
@@ -16,6 +12,8 @@ public class Board implements Loadable, Saveable {
     private int size;
     public int[][] display;
     public ArrayList<Apple> apples = new ArrayList<>();
+    public ArrayList<Apple> eatenRedApples = new ArrayList<>();
+    public ArrayList<Apple> eatenBlueApples = new ArrayList<>();
     private HashMap<String, ArrayList<Apple>> eaten = new HashMap<>();
 
     public Board(int size) {
@@ -47,10 +45,25 @@ public class Board implements Loadable, Saveable {
         }
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Board board = (Board) o;
+        return eatenRedApples.equals(board.eatenRedApples) &&
+                eatenBlueApples.equals(board.eatenBlueApples) &&
+                eaten.equals(board.eaten);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(eatenRedApples, eatenBlueApples, eaten);
+    }
+
     // set up hashmap for such
     private void setUpEaten() {
-        eaten.put("red", new ArrayList<>());
-        eaten.put("blue", new ArrayList<>());
+        eaten.put("red", eatenRedApples);
+        eaten.put("blue", eatenBlueApples);
 
     }
 
@@ -82,6 +95,8 @@ public class Board implements Loadable, Saveable {
         int value = display[snake.getXloc()][snake.getYloc()];
         if (value == APPLE) {
             eatApple(apples.get(0));
+        } else {
+            display[snake.getXloc()][snake.getYloc()] = SNAKE;
         }
     }
 
