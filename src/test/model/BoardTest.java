@@ -64,5 +64,12 @@ public class BoardTest {
         board.eatApple(apple);
 
     }
+    @Test
+    void testAppleAdding() throws NoAppleException, TooManyApplesException{
+        Apple apple = new RedApple(1, 5);
+        board.addApple(apple);
+        board.appleAdding(apple);
+        board.equals(board);
+    }
 }
 

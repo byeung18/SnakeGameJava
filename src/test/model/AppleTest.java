@@ -45,4 +45,6 @@ public class AppleTest {
         assertEquals("red", redApple.getColor());
         assertEquals("blue", blueApple.getColor());
     }
+
+
 }
