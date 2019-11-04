@@ -9,7 +9,7 @@ public class BlueApple extends Apple {
         this.color = "blue";
     }
 
-    public String getColor() {
-        return color;
-    }
+//    public String getColor() {
+//        return color;
+//    }
 }

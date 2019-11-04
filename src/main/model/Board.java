@@ -39,7 +39,7 @@ public class Board implements Loadable, Saveable {
         } catch (TooManyApplesException e) {
             System.out.println("Too many apples!!");
         } finally {
-            for (Apple a:apples) {
+            for (Apple a : apples) {
                 loadApple(a);
             }
         }
@@ -76,10 +76,12 @@ public class Board implements Loadable, Saveable {
         String color = apple.getColor();
         eaten.get(color).add(apple);
         display[apple.getXloc()][apple.getYloc()] = 0;
+        apple.removeBoard();
     }
 
     protected void appleAdding(Apple apple) throws NoAppleException, TooManyApplesException {
         apples.add(apple);
+        apple.addBoard(this);
         if (apples.size() == 0) {
             throw new NoAppleException();
         } else if (apples.size() >= 3) {
