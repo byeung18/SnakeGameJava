@@ -70,5 +70,14 @@ public class BoardTest {
         board.appleAdding(apple);
         board.equals(board);
     }
+
+    @Test
+    void testHashCode() {
+        Board newboard = new Board(6);
+        board.equals(board);
+        board.equals(newboard);
+        board.hashCode();
+        newboard.hashCode();
+    }
 }
 

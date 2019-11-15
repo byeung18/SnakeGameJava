@@ -6,6 +6,7 @@ import model.BlueApple;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 
 public class AppleTest {
@@ -44,6 +45,14 @@ public class AppleTest {
     public void testGetColor() {
         assertEquals("red", redApple.getColor());
         assertEquals("blue", blueApple.getColor());
+    }
+
+    @Test
+    public void testAppleAndBoard() {
+        Board board = new Board(6);
+//        apple.addBoard(board);
+//        assertTrue(apple.isOnBoard());
+//        apple.removeBoard();
     }
 
 

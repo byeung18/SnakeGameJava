@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.*;
 
-public class Board implements Loadable, Saveable {
+public class Board extends Observable implements Loadable, Saveable {
 
     private static final int APPLE = 1;
     private static final int SNAKE = 2;
@@ -34,6 +34,9 @@ public class Board implements Loadable, Saveable {
     public void addApple(Apple apple) {
         try {
             appleAdding(apple);
+            this.addObserver(apple);
+            setChanged();
+            notifyObservers(apple);
         } catch (NoAppleException e) {
             System.out.println("No apples found :(");
         } catch (TooManyApplesException e) {
@@ -76,12 +79,12 @@ public class Board implements Loadable, Saveable {
         String color = apple.getColor();
         eaten.get(color).add(apple);
         display[apple.getXloc()][apple.getYloc()] = 0;
-        apple.removeBoard();
+//        apple.removeBoard();
     }
 
     protected void appleAdding(Apple apple) throws NoAppleException, TooManyApplesException {
         apples.add(apple);
-        apple.addBoard(this);
+//        apple.addBoard(this);
         if (apples.size() == 0) {
             throw new NoAppleException();
         } else if (apples.size() >= 3) {
