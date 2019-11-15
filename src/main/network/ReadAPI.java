@@ -1,9 +1,13 @@
 package network;
 
+import com.sun.deploy.util.StringUtils;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
+import java.util.ArrayList;
+
 
 public class ReadAPI {
 
@@ -23,12 +27,20 @@ public class ReadAPI {
             StringBuilder sb = new StringBuilder();
 
             while ((line = br.readLine()) != null) {
-
                 sb.append(line);
                 sb.append(System.lineSeparator());
             }
 
             System.out.println(sb);
+            String s = sb.toString();
+            int min = s.indexOf("temp_min") + 10;
+            int max = s.indexOf("temp_max") + 10;
+            Float mintemp = Float.parseFloat(s.substring(min, min+6)) - 273;
+            Float maxtemp = Float.parseFloat(s.substring(max, max+6)) - 273;
+
+            System.out.println("London has high of " + maxtemp + " and low of " + mintemp + ".");
+
+
         } finally {
 
             if (br != null) {
