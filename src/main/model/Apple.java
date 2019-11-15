@@ -1,7 +1,5 @@
 package model;
 
-import network.Board;
-
 public abstract class Apple {
     private int xloc;
     private int yloc;
