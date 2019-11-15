@@ -2,7 +2,7 @@ package ui;
 
 import model.*;
 import model.Apple;
-import model.Board;
+import network.Board;
 import model.Snake;
 
 import java.util.Scanner;

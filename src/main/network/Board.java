@@ -1,4 +1,6 @@
-package model;
+package network;
+
+import model.*;
 
 import java.io.IOException;
 import java.io.PrintWriter;
