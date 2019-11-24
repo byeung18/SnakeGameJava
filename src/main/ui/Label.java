@@ -40,6 +40,9 @@ public class Label extends JFrame implements ActionListener {
     //taken from 210 website on LabelChangers
     //this is the method that runs when Swing registers an action on an element
     //for which this class is an ActionListener
+    // REQUIRES: ActionListener
+    // MODIFIES: size
+    // EFFECTS: if valid size entered in field, create new SnakeGame of given size
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equals("myButton")) {
             try {

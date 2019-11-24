@@ -12,7 +12,7 @@ public class Game {
     public Snake snake;
     public Apple apple;
 
-    // EFFECTS: snake is at centre of board and apple random location on board
+    // snake is at centre of board and apple random location on board
     public Game(int size) {
         this.size = size;
         randomNG = new Random();
