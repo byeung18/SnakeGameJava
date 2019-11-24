@@ -1,5 +1,7 @@
 package ui;
 
+import model.Game;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -19,6 +21,7 @@ public class SnakeGame extends JFrame {
 
 
     // modified code from class lab 6
+    // graphical representation of the snake game board
     SnakeGame(int sizeshape) {
         super("SnakeGame");
         thewidth = sizeshape * 30;
@@ -44,12 +47,17 @@ public class SnakeGame extends JFrame {
     }
 
 
-
+    // REQUIRES: active game
+    // MODIFIES: graphics
+    // EFFECTS: draws in snake and apple on board
     void draw(Graphics graphics) {
         drawSnake(graphics);
         drawApple(graphics);
     }
 
+    // REQUIRES: active snake on board
+    // MODIFIES: graphics
+    // EFFECTS: fills in green squares on board for snake location
     void drawSnake(Graphics graphics) {
         graphics.setColor(new Color(25, 240, 50));
         for (int i = 0; i < game.snake.bodyX.size(); i++) {
@@ -59,6 +67,9 @@ public class SnakeGame extends JFrame {
         }
     }
 
+    // REQUIRES: active apple on board
+    // MODIFIES: graphics
+    // EFFECTS: fills in red square on board for apple location
     void drawApple(Graphics graphics) {
         graphics.setColor(new Color(200, 25, 50));
         graphics.fillRect(game.apple.getXloc() * PIXELS,

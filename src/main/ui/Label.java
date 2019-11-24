@@ -37,6 +37,7 @@ public class Label extends JFrame implements ActionListener {
         setResizable(false);
     }
 
+    //taken from 210 website on LabelChangers
     //this is the method that runs when Swing registers an action on an element
     //for which this class is an ActionListener
     public void actionPerformed(ActionEvent e) {

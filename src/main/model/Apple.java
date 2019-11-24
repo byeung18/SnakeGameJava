@@ -8,16 +8,21 @@ public abstract class Apple implements Observer {
     private int yloc;
     private String color;
 
+    // abstract apple class with null color
     public Apple(int xloc, int yloc) {
         this.xloc = xloc;
         this.yloc = yloc;
         this.color = null;
     }
 
+    //effects: returns colour of apple
     public String getColor() {
         return color;
     }
 
+
+    // Observable/Observer relationship with board so sout message when apple added to board
+    // EFFECTS: outputs message when apple added to board
     @Override
     public void update(Observable o, Object arg) {
         System.out.println("Apple " + arg + " added to Board!");
@@ -39,18 +44,4 @@ public abstract class Apple implements Observer {
         //effects: return yloc
         return yloc;
     }
-
-    //    public boolean isOnBoard() {
-//        return board != null;
-//    }
-//
-//    public void addBoard(Board board) {
-//        this.board = board;
-//        board.addApple(this);
-//    }
-//
-//    public void removeBoard() {
-//        this.board.eatApple(this);
-//        this.board = null;
-//    }
 }

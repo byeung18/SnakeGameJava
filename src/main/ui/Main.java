@@ -34,7 +34,8 @@ public class Main {
 //        newBoard.printBoard();
     }
 
-    static void setupApple(Scanner scanner, Board board) {
+    // sets up apples on the board
+    private static void setupApple(Scanner scanner, Board board) {
         Random rand = new Random();
         Apple apple;
         System.out.println("What color apple? red or blue: ");
@@ -48,7 +49,8 @@ public class Main {
         board.addApple(apple);
     }
 
-    static void setupSnake(Board board) {
+    // sets up snakes on the board
+    private static void setupSnake(Board board) {
         Snake snake = new Snake();
         snake.setLoc(board.getSize() / 2, board.getSize() / 2);
         System.out.println("Snake location is at " + snake.getXloc() + ", " + snake.getYloc());

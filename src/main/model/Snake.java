@@ -21,7 +21,7 @@ public class Snake {
     }
 
     public void setLoc(int xloc, int yloc) {
-        //modifies: sets new xloc and yloc
+        //modifies: sets new xloc and yloc, reinitialize snake to size 1 body
         this.xloc = xloc;
         this.yloc = yloc;
         bodyX = new ArrayList<>();
@@ -71,6 +71,7 @@ public class Snake {
     }
 
     public void setDirection(String direction) {
+        // modifies: set direction to direction given
         this.direction = direction;
     }
 
@@ -79,6 +80,10 @@ public class Snake {
         return direction;
     }
 
+    // REQUIRES: active snake with directions
+    // MODIFIES: snake body (bodyX, bodyY)
+    // EFFECTS: moves snake by one step: adds new location of head to body
+    //          and removes tail index of body
     public void move() {
         int headX = bodyX.get(0);
         int headY = bodyY.get(0);

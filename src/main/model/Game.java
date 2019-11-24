@@ -1,4 +1,4 @@
-package ui;
+package model;
 
 import model.Apple;
 import model.RedApple;
@@ -37,13 +37,16 @@ public class Game {
         }
     }
 
-    // REQUIRES:
+    // REQUIRES: active snake on board, !isOver()
     // MODIFIES: snake
-    // EFFECTS:
+    // EFFECTS: rotates snake in direction given
     public void rotateSnake(String direction) {
         snake.setDirection(direction);
     }
 
+    // REQUIRES: active snake on board
+    // MODIFIES: snake
+    // EFFECTS: checks if game is over (ie. if snake head is outside of board)
     public boolean isOver() {
         int headX = snake.bodyX.get(0);
         int headY = snake.bodyY.get(0);
