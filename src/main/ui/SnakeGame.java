@@ -1,8 +1,5 @@
 package ui;
 
-import model.Board;
-import model.Game;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;

@@ -1,4 +1,8 @@
-package model;
+package ui;
+
+import model.Apple;
+import model.RedApple;
+import model.Snake;
 
 import java.util.Random;
 

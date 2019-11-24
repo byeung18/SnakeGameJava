@@ -41,15 +41,24 @@ public class SnakeTest {
 
 
     @Test
-    public void testSetNewDirection() {
+    public void testSetNewDirectionAndMove() {
         snake.setDirectionLeft();
         assertEquals("LEFT", snake.getDirection());
+        snake.move();
         snake.setDirectionRight();
         assertEquals("RIGHT", snake.getDirection());
+        snake.move();
         snake.setDirectionUp();
         assertEquals("UP", snake.getDirection());
+        snake.move();
         snake.setDirectionDown();
         assertEquals("DOWN", snake.getDirection());
+        snake.move();
+        snake.setDirection("DOWN");
+        assertEquals("DOWN", snake.getDirection());
+        snake.move();
     }
+
+
 }
 
