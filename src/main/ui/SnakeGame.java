@@ -8,9 +8,9 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
 public class SnakeGame extends JFrame {
-    private static final int size = 11;
-    private static final int WIDTH = size * 30;
-    private static final int HEIGHT = size * 30;
+    private int size = 11;
+    public int thewidth;
+    public int theheight;
     private static final Color BACKGROUND_COLOUR = new Color(100, 100, 100);
     private static final Color GAME_OVER_COLOUR = new Color(80, 40, 80);
     private static final int INTERVAL = 400;
@@ -19,12 +19,14 @@ public class SnakeGame extends JFrame {
 
 
     // modified code from class lab 6
-    SnakeGame() {
+    SnakeGame(int sizeshape) {
         super("SnakeGame");
-        setSize(WIDTH, HEIGHT);
+        thewidth = sizeshape * 30;
+        theheight = sizeshape * 30;
+        setSize(thewidth, theheight);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
-        game = new Game(size);
+        game = new Game(sizeshape);
         addKeyListener(new KeyHandler());
         centreOnScreen();
         addTimer();
@@ -37,7 +39,7 @@ public class SnakeGame extends JFrame {
     // EFFECTS:  clears screen and paints game onto graphics
     public void paint(Graphics graphics) {
         graphics.setColor(game.isOver() ? GAME_OVER_COLOUR : BACKGROUND_COLOUR);
-        graphics.fillRect(0, 0, WIDTH, HEIGHT);
+        graphics.fillRect(0, 0, thewidth, theheight);
         draw(graphics);
     }
 
@@ -120,7 +122,7 @@ public class SnakeGame extends JFrame {
 
 
     public static void main(String[] args) {
-        new SnakeGame();
+        new SnakeGame(11);
     }
 
 }

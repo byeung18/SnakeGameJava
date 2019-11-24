@@ -12,10 +12,6 @@ public class Game {
     public Snake snake;
     public Apple apple;
 
-    public void setBoardSize(int size) {
-        this.size = size;
-    }
-
     // EFFECTS: snake is at centre of board and apple random location on board
     public Game(int size) {
         this.size = size;
@@ -27,9 +23,8 @@ public class Game {
 
     // modified code from class lab 6
     // REQUIRES: !isOver()
-    // MODIFIES: this
-    // EFFECTS:  move snake and decay food; if snake head is at food position, eat food and
-    //           create new food at random location
+    // MODIFIES: snake, apple
+    // EFFECTS:  move snake; if snake eats apple, make new apple at random location
     public void update() {
         snake.move();
         int headX = snake.bodyX.get(0);
@@ -42,6 +37,9 @@ public class Game {
         }
     }
 
+    // REQUIRES:
+    // MODIFIES: snake
+    // EFFECTS:
     public void rotateSnake(String direction) {
         snake.setDirection(direction);
     }
