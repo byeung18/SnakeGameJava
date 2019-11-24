@@ -42,6 +42,7 @@ public class SnakeTest {
 
     @Test
     public void testSetNewDirectionAndMove() {
+        snake.setLoc(4, 6);
         snake.setDirectionLeft();
         assertEquals("LEFT", snake.getDirection());
         snake.move();
