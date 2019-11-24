@@ -1,10 +1,14 @@
 package model;
 
+import java.util.ArrayList;
+
 public class Snake {
     private int xloc;
     private int yloc;
     private int length;
     private String direction;
+    public ArrayList<Integer> bodyX;
+    public ArrayList<Integer> bodyY;
 
 
     public Snake() {
@@ -12,12 +16,18 @@ public class Snake {
         yloc = 0;
         length = 1;
         direction = "RIGHT";
+        bodyX = new ArrayList<>();
+        bodyY = new ArrayList<>();
     }
 
     public void setLoc(int xloc, int yloc) {
         //modifies: sets new xloc and yloc
         this.xloc = xloc;
         this.yloc = yloc;
+        bodyX = new ArrayList<>();
+        bodyY = new ArrayList<>();
+        bodyX.add(0, xloc);
+        bodyY.add(0, yloc);
     }
 
     public int getXloc() {
@@ -60,8 +70,32 @@ public class Snake {
         direction = "DOWN";
     }
 
+    public void setDirection(String direction) {
+        this.direction = direction;
+    }
+
     public String getDirection() {
         //effect: return direction
         return direction;
+    }
+
+    public void move() {
+        int headX = bodyX.get(0);
+        int headY = bodyY.get(0);
+        if (direction.equals("UP")) {
+            bodyX.add(0, headX);
+            bodyY.add(0, headY - 1);
+        } else if (direction.equals("DOWN")) {
+            bodyX.add(0, headX);
+            bodyY.add(0, headY + 1);
+        } else if (direction.equals("LEFT")) {
+            bodyX.add(0, headX - 1);
+            bodyY.add(0, headY);
+        } else if (direction.equals("RIGHT")) {
+            bodyX.add(0, headX + 1);
+            bodyY.add(0, headY);
+        }
+        bodyX.remove(bodyX.size() - 1);
+        bodyY.remove(bodyY.size() - 1);
     }
 }
