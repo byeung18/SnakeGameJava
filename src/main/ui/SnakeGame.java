@@ -43,7 +43,16 @@ public class SnakeGame extends JFrame {
     public void paint(Graphics graphics) {
         graphics.setColor(game.isOver() ? GAME_OVER_COLOUR : BACKGROUND_COLOUR);
         graphics.fillRect(0, 0, thewidth, theheight);
+        //BoardScreen board;
         draw(graphics);
+        if (game.isOver()) {
+            try {
+                Thread.sleep(1000);
+            } catch (Exception ex) {
+                //this
+            }
+            this.dispose();
+        }
     }
 
 

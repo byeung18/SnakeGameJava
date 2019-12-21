@@ -48,7 +48,7 @@ public class Label extends JFrame implements ActionListener {
             try {
                 size = Integer.parseInt(field.getText());
                 new SnakeGame(size);
-                this.dispose();
+                //this.dispose();
             } catch (Exception ex) {
                 System.out.println("Not valid number");
             }
