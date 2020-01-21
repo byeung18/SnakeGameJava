@@ -2,7 +2,7 @@
 
 classic Snake Game in Java
 
-jar file in SnakeGameJava/out/artifacts/SnakeGame_jar/
+can run SnakeGame.jar file
 
 can choose board size: 10-15 optimal
 
