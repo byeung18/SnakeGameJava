@@ -2,6 +2,8 @@
 
 classic Snake Game in Java
 
+jar file in SnakeGameJava/out/artifacts/SnakeGame_jar/
+
 can choose board size: 10-15 optimal
 
 move the green snake using arrow keys to eat red apples
