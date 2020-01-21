@@ -9,7 +9,7 @@ import java.util.Random;
 
 public class Game {
     public int size;
-    //private HashSet obstacles;
+    private HashSet obstacles;
     private Random randomNG;
     public Snake snake;
     public Apple apple;
